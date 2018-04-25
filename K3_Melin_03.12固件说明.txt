@@ -1,0 +1,17 @@
+
+K3_Melin_03.12
+
+1.修正1206版固件无法进入CFE的BUG，但会导致第一屏信息不显示MAC地址。
+2.本版固件加入华硕签名，支持WEB直刷，可在旧版X7.7固件中系统管理——固件升级中直接升级。
+3.本版固件内未集成屏幕升级程序，需要先刷官改固件，屏幕会自动升级，升级后本版固件屏幕才能正常使用。
+  第一屏正常显示，第二屏不正常，第三屏WAN口上下行数据正常显示，第四屏天气正常显示，第五屏WiFi正常显示，第六屏不正常，进程会挂掉
+4.显示天气要从压缩包内附件city_id.txt中查找城市ID,登陆SSH以如下格式设置
+  nvram set screen_time=0           #   以秒为单位，0为一直显示不息屏   ，10为10秒后息屏
+  nvram set screen_guest_pwd_en=1   #   1为显示无线密码，0为隐藏无线密码
+  nvram set screen_2G5G_pwd_en=1    #   1为显示无线密码，0为隐藏无线密码
+  nvram set province_ch=河南        #   自己设定
+  nvram set county_ch=郑州          #   自己设定
+  nvram set city_id=WW0V9QP93VS8    #   从附件中查找出自己城市对应的city_id
+  nvram commit                      #   保存设置 
+  天气默认每隔1个小时更新一次
+
